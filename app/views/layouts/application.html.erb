@@ -10,6 +10,40 @@
   </head>
 
   <body>
+    <header>
+      <ul>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to "Mypage", user_path(current_user.id),method: :get %>
+          </li>
+          <li>
+            <%= link_to "Food", foods_path, method: :get %>
+          </li>
+          <li>
+            <%= link_to "Recipe", recipes_path, method: :get %>
+          </li>
+          <li>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Mypage", new_user_session_path, method: :get %>
+          </li>
+          <li>
+            <%= link_to "Food", foods_path, method: :get %>
+          </li>
+          <li>
+            <%= link_to "Recipe", recipes_path, method: :get %>
+          </li>
+          <li>
+            <%= link_to "Login", new_user_session_path, method: :get %>
+          </li>
+        <% end %>
+      </ul>
+    </header>
     <%= yield %>
+    <foooter>
+      <h1>asimoto</h1>
+    </foooter>
   </body>
 </html>
