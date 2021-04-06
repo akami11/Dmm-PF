@@ -1,2 +1,32 @@
-<h1>Foods#show</h1>
-<p>Find me in app/views/foods/show.html.erb</p>
+<%= @food.food_name %>
+
+<%= attachment_image_tag @food, :food_image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg", size: "200x150" %><br>
+
+<table class="table">
+    <tr>
+      <td>熱量</td> 
+      <td><%= @food.calorie %></td>
+    </tr>
+        <tr>
+      <td>タンパク質</td> 
+      <td><%= @food.protein %></td>
+    </tr>
+        <tr>
+      <td>脂質</td> 
+      <td><%= @food.fat %></td>
+    </tr>
+        <tr>
+      <td>炭水化物</td> 
+      <td><%= @food.carbohydrate %></td>
+    </tr>
+        <tr>
+      <td>食塩相当量</td> 
+      <td><%= @food.salt_equivalent %></td>
+    </tr>
+        <tr>
+      <td>カテゴリー</td> 
+      <td><%= @food.category.category_name %></td>
+    </tr>
+</table>
+
+<%= link_to "編集", edit_food_path(@food.id),method: :get %>

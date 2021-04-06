@@ -1,0 +1,30 @@
+<%= form_with model: food, local:true do |f| %>
+  <h5>食材名</h5>
+  <%= f.text_field :food_name, class: "" %>
+  
+  <h5>食材画像</h5>
+  <%= f.attachment_field :food_image %>
+      
+  <h5>熱量</h5>
+  <%= f.text_field :calorie, class: "" %>
+  
+  <h5>タンパク質</h5>
+  <%= f.text_field :protein, class: "" %>
+  
+  <h5>脂質</h5>
+  <%= f.text_field :fat, class: "" %>
+  
+  <h5>炭水化物</h5>
+  <%= f.text_field :carbohydrate, class: "" %>
+  
+  <h5>食塩相当量</h5>
+  <%= f.text_field :salt_equivalent, class: "" %>
+  
+  <h5>カテゴリー</h5>
+  <%= f.collection_select :category_id, categories, :id, :category_name, { prompt: "選択してください"}, class: "" %>
+  
+  <h5>その他の成分</h5>
+  <%= f.text_area :other_nutrition, class: ""%>
+  
+  <%= f.submit '投稿', class: "btn btn-success" %>
+<% end %>

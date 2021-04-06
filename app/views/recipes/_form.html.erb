@@ -1,0 +1,33 @@
+<%= form_with model: recipe, local:true do |f| %>
+  
+  <h5>料理名</h5>
+  <%= f.text_field :recipe_name, class: "" %>
+  
+  <h5>料理画像</h5>
+  <%= f.attachment_field :recipe_image %>
+  
+  
+  <!-- フォームの中身を呼び出しています-->
+  <%= f.fields_for :ingredients do |form| %>
+    <%= render "ingredient_fields", f: form %>
+  <% end %>
+  
+  <!-- 追加されるフォームの場所-->
+  <div id="detail-association-insertion-point"></div>
+  
+  <!--  association_insertion_node: '#detail-association-insertion-point'でフォームを追加する場所を指定-->
+  <!--  association_insertion_method: 'after'でフォームの追加場所を指定-->
+  <%= link_to_add_association "追加ボタン", f, :ingredients,
+  class: 'btn btn-secondary btn-block',
+  id: '',
+  data: {
+    association_insertion_node: '#detail-association-insertion-point',
+    association_insertion_method: '' 
+  }%>
+
+
+  <h5>その他の成分</h5>
+  <%= f.text_area :process, class: ""%>
+  
+  <%= f.submit 'Create Book', class: "btn btn-success" %>
+<% end %>
