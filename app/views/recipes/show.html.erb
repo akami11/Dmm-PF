@@ -1,2 +1,15 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<%= @recipe.recipe_name %>
+
+<%= attachment_image_tag @recipe, :recipe_image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg", size: "200x150" %><br>
+
+ <% @ingredients.each do |ingredient| %>
+   <%= ingredient.ingredient_name %>
+   <%= ingredient.quantity %>
+ <% end %>
+ 
+ <%= @recipe.process %>
+ 
+ <% if @recipe.user_id = current_user.id %>
+   <%= link_to "編集する", edit_recipe_path(@recipe.id), method: :get%>
+ <% end %>
+ 

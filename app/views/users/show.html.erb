@@ -1,2 +1,32 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= @user.user_name %>
+
+<%= attachment_image_tag @user, :profile_image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg", size: "200x150" %><br>
+
+<% if @user = current_user %>
+  <%= link_to "編集", edit_user_path(@user.id),method: :get%>
+<% end %>
+
+<h4>投稿料理</h4>
+<%= link_to "新規投稿", new_recipe_path, method: :get%>
+ <% @recipes.each do |recipe| %>
+ <table class="table">
+    <tr>
+      <td><%= recipe.recipe_name %></td>
+      <td><%= attachment_image_tag recipe, :recipe_image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg", size: "200x150" %></td>
+    </tr>
+</table>
+<% end %>
+
+
+<% if @user = current_user %>
+  <%= link_to "編集", edit_tip_path(@user.id),method: :get%>
+
+   <% @tips.each do |tip| %>
+   <table>
+     <tr>
+       <td><%= tip.tip_contents %></td>
+     </tr>
+   </table>
+   <% end %>
+
+ <% end %>
