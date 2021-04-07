@@ -1,6 +1,10 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:index,:show]
+  before_action :ensure_recipe, only: [:edit, :show, :update, :destroy]
+  
   def index
     @recipes = Recipe.all
+    @tip = Tip.find(Tip.pluck(:id).sample) 
   end
 
   def create
@@ -15,11 +19,13 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    
+    # cocconで使う、親モデルに子モデルのインスタンスを作成
     @ingredient = @recipe.ingredients.build
+  
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
     @ingredient = @recipe.ingredients.build
     # if @recipe.user_id = current_user.id
     #   render :edit
@@ -29,12 +35,11 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
     @ingredients = @recipe.ingredients
+    @tip = Tip.find(Tip.pluck(:id).sample) 
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
       redirect_to recipe_path(params[:id])
     else
@@ -43,7 +48,6 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to recipes_path
   end
@@ -52,7 +56,11 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:recipe_name, :recipe_image, :process,
-                                ingredients_attributes: [:id, :recipe_id,:ingredient_name, :quantity, :_destroy])
+                                ingredients_attributes: [:id, :recipe_id,:ingredient_name, :quantity, :_destroy]) #これでレシピと一緒にデータを保存出来てる
   end
 
+  def ensure_recipe
+    @recipe = Recipe.find(params[:id]) 
+  end
+  
 end

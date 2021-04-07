@@ -1,13 +1,4 @@
 <h1>料理一覧</h1>
 
-<%= link_to "新規 ", new_recipe_path, method: :get%>
-
-<% @recipes.each do |recipes| %>
-  <table class="table">
-    <tr>
-      <td><%= recipes.recipe_name %></td>
-    </tr>
-  </table>
-  <%= link_to "詳細", recipe_path(recipes.id), method: :get %>
-  <%= link_to "削除", recipes_path(recipes.id), method: :delete%>
-<% end %>
+<%= @tip.tip_contents %>
+<%= render "recipes/index", recipes: @recipes %>

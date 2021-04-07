@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_user, only: [:edit, :show, :update]
+  
   def edit
-    @user = User.find(params[:id])
   end
 
   def show
-    @user = User.find(params[:id])
     @recipes = @user.recipes
     @tips = @user.tips
   end
 
   def update
-     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(params[:id])
     else
@@ -26,4 +26,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:user_name, :profile_image,)
   end
+  
+  def ensure_user
+    @user = User.find(params[:id])
+  end
+  
 end

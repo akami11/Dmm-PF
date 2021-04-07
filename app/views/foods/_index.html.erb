@@ -1,0 +1,11 @@
+<%= link_to "新規", new_food_path, method: :get%>
+
+<% foods.each do |food| %>
+  <table class="table">
+    <tr>
+      <td><%= food.food_name %></td>
+    </tr>
+  </table>
+  <%= link_to "詳細", food_path(food.id), method: :get %>
+  <%= link_to "削除", food_path(food.id), method: :delete%>
+<% end %>

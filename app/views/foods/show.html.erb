@@ -1,3 +1,5 @@
+<%= @tip.tip_contents %>
+
 <%= @food.food_name %>
 
 <%= attachment_image_tag @food, :food_image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg", size: "200x150" %><br>
@@ -5,28 +7,41 @@
 <table class="table">
     <tr>
       <td>熱量</td> 
-      <td><%= @food.calorie %></td>
+      <td><%= @food.calorie %>kcal</td>
     </tr>
-        <tr>
+    <tr>
       <td>タンパク質</td> 
-      <td><%= @food.protein %></td>
+      <td><%= @food.protein %>g</td>
     </tr>
-        <tr>
+    <tr>
       <td>脂質</td> 
-      <td><%= @food.fat %></td>
+      <td><%= @food.fat %>g</td>
     </tr>
-        <tr>
+    <tr>
       <td>炭水化物</td> 
-      <td><%= @food.carbohydrate %></td>
+      <td><%= @food.carbohydrate %>g</td>
     </tr>
-        <tr>
+    <tr>
       <td>食塩相当量</td> 
-      <td><%= @food.salt_equivalent %></td>
+      <td><%= @food.salt_equivalent %>g</td>
     </tr>
-        <tr>
+    <tr>
       <td>カテゴリー</td> 
       <td><%= @food.category.category_name %></td>
     </tr>
+    <tr>
+      <td>タンパク質比率</td> 
+      <td><%= @food.ratio %>g/kcal</td>
+    </tr>
 </table>
 
+<!-- -->
+
+
 <%= link_to "編集", edit_food_path(@food.id),method: :get %>
+
+<% @ingredients.each do |i| %>
+ 
+ <%= i.recipe.recipe_name %>
+ 
+<% end %>

@@ -1,0 +1,11 @@
+<%= link_to "新規 ", new_recipe_path, method: :get%>
+
+<% recipes.each do |recipe| %>
+  <table class="table">
+    <tr>
+      <td><%= recipe.recipe_name %></td>
+    </tr>
+  </table>
+  <%= link_to "詳細", recipe_path(recipe.id), method: :get %>
+  <%= link_to "削除", recipes_path(recipe.id), method: :delete%>
+<% end %>

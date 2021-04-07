@@ -19,14 +19,15 @@
 
 
 <% if @user = current_user %>
-  <%= link_to "編集", edit_tip_path(@user.id),method: :get%>
+  <%= link_to "新規", new_tip_path, method: :get%>
 
    <% @tips.each do |tip| %>
    <table>
      <tr>
        <td><%= tip.tip_contents %></td>
+       <td> <%= link_to "編集", edit_tip_path(tip.id),method: :get%></td>
      </tr>
    </table>
    <% end %>
 
- <% end %>
+<% end %>

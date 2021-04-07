@@ -1,12 +1,5 @@
 <h1>食材一覧</h1>
-<%= link_to "新規", new_food_path, method: :get%>
 
-<% @foods.each do |foods| %>
-  <table class="table">
-    <tr>
-      <td><%= foods.food_name %></td>
-    </tr>
-  </table>
-  <%= link_to "詳細", food_path(foods.id), method: :get %>
-  <%= link_to "削除", food_path(foods.id), method: :delete%>
-<% end %>
+<%= @tip.tip_contents %>
+<%= render "categories/sidebar", categories: @categories%>
+<%= render "foods/index", foods: @foods%>

@@ -1,0 +1,6 @@
+ <h2>カテゴリー検索</h2>
+
+ <% categories.each do |category| %>
+ <%= link_to category.category_name, category_path(category.id), method: :get%>
+ 
+ <% end %>
