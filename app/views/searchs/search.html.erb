@@ -1,0 +1,10 @@
+<h2>検索結果</h2>
+<% if @records.exists? %> 
+	<% if @model == 'food' %>
+		<%= render 'foods/index', foods: @records %>
+	<% else %>
+		<%= render 'recipes/index', recipes: @records %>
+	<% end %>
+<% else %>
+	<h3>見つかりませんでした。検索条件を変更して再度お試しください。</h3>
+<% end %>
