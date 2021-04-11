@@ -1,4 +1,5 @@
 <h2>Tips</h2>
+<%= render 'layouts/error_messages', model: tip %>
 <%= form_with model: tip, local:true do |f| %>
   <%= f.text_field :tip_contents, placeholder: "皆さんの知識を世界に広めましょう！", class: "" %>
   <p>投稿された内容はランダムに表示されます、不適切な表現には気をつけてください</p>

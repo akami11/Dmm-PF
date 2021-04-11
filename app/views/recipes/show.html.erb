@@ -11,7 +11,7 @@
  
  <%= @recipe.process %>
  
- <% if @recipe.user_id = current_user.id %>
+ <% if @recipe.user = current_user %>
    <%= link_to "編集する", edit_recipe_path(@recipe.id), method: :get%>
  <% end %>
  

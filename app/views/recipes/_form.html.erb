@@ -1,5 +1,6 @@
+
 <%= form_with model: recipe, local:true do |f| %>
-  
+<%= render 'layouts/error_messages', model: f.object %>
   <h5>料理名</h5>
   <%= f.text_field :recipe_name, class: "" %>
   

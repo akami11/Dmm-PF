@@ -1,15 +1,25 @@
+<div class ="row">
+<div class="col-md-6 text-center">
 <%= form_with model: category, local:true do |f| %>
-  <%= f.text_field :category_name, class: "" %>
-  <p>投稿された内容は沢山の人に見られるものです、不適切な表現には気をつけてください</p>
-  <%= f.submit '投稿', class: "btn btn-success" %>
+  <%= f.text_field :category_name, class: "form-control", :required => true %>
+  <br>
+  <p>投稿した内容は沢山の人に見られるものです<br>不適切な表現には気をつけてください</p>
+  <%= f.submit "投稿", class: "btn btn-secondary w-50"%>
 <% end %>
+</div>
 
+<div class="col-md-6" >
+ <h3>カテゴリ一覧</h3>
  <% categories.each do |categories| %>
-   <table>
-     <tr>
-       <td><%= categories.category_name %></td>
-       <td><%= link_to "編集", edit_category_path(categories.id), method: :get %></td>
-       <td><%= link_to "削除", category_path(categories.id),method: :delete %></td>
-     </tr>
-   </table>
-<% end %>
+ <div class="form-group row box__index">
+    <div class="col-6"><%= categories.category_name %></div>
+    <%= link_to edit_category_path(categories.id), method: :get, class: "col-3" do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+    <%= link_to category_path(categories.id),method: :delete do%>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+ </div>
+ <% end %>
+ </div>
+ </div>
