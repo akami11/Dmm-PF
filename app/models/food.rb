@@ -1,9 +1,13 @@
 class Food < ApplicationRecord
 
-  belongs_to :category, optional: true
+  belongs_to :category
   belongs_to :user, optional: true
 
   attachment :food_image
+  
+  validates :food_name, length: { maximum: 15 }
+  validates :calorie, presence: true
+  validates :protein, presence: true
   
   def ratio
     ( protein / calorie).round(3)

@@ -16,3 +16,55 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+header{
+  background-color: #3a4750;
+  margin-bottom: 20px;
+}
+
+footer{
+  background-color: #3a4750;
+  display: flex;
+  justify-content: center;
+  h1{
+    color: #dcddde;
+  }
+}
+
+.head{
+  background-color: #3a4750;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__search{
+    
+    form{
+      display: flex;
+      select{
+        margin-left: 20px;
+      }
+      i{
+       color: #dcddde;
+       font-size: 20px;
+      }
+    }
+  }
+
+  ul{
+    display: flex;
+    li{
+      list-style: none;
+      display: flex;
+      margin: 20px 20px 10px 10px;
+      a{
+        color: #dcddde;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.tip{
+  background-color: #ffac3796;
+}

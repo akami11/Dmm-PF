@@ -27,11 +27,11 @@ class RecipesController < ApplicationController
 
   def edit
     @ingredient = @recipe.ingredients.build
-    # if @recipe.user_id = current_user.id
-    #   render :edit
-    # else
-    #   redirect_to recipe_path(params[:id])
-    # end
+    if @recipe.user = current_user
+      render :edit
+    else
+      redirect_to recipe_path(params[:id])
+    end
   end
 
   def show

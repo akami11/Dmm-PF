@@ -3,9 +3,7 @@
 <% recipes.each do |recipe| %>
   <table class="table">
     <tr>
-      <td><%= recipe.recipe_name %></td>
+      <td><%= link_to recipe.recipe_name, recipe_path(recipe.id), method: :get %></td>
     </tr>
   </table>
-  <%= link_to "詳細", recipe_path(recipe.id), method: :get %>
-  <%= link_to "削除", recipes_path(recipe.id), method: :delete%>
 <% end %>

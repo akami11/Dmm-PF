@@ -10,47 +10,59 @@
   </head>
 
   <body>
-    <header>
-   
-      <%= form_with url: search_path, method: :get, local: true do |f| %>
-        <%= f.text_field :content %>
-        <%= f.select :model, options_for_select({ "食材" => "food", "料理" => "recipe"}) %>
-        <%= f.submit 'search',placeholder: "食材名、料理名" %>
-      <% end %>
 
-      <ul>
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to "Mypage", user_path(current_user.id),method: :get %>
-          </li>
-          <li>
-            <%= link_to "Food", foods_path, method: :get %>
-          </li>
-          <li>
-            <%= link_to "Recipe", recipes_path, method: :get %>
-          </li>
-          <li>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "Mypage", new_user_session_path, method: :get %>
-          </li>
-          <li>
-            <%= link_to "Food", foods_path, method: :get %>
-          </li>
-          <li>
-            <%= link_to "Recipe", recipes_path, method: :get %>
-          </li>
-          <li>
-            <%= link_to "Login", new_user_session_path, method: :get %>
-          </li>
-        <% end %>
-      </ul>
-    </header>
-    <%= yield %>
-    <foooter>
-      <h1>asimoto</h1>
-    </foooter>
+      <header>
+        <div class ="container">
+          <div class = "head">
+            <%= image_tag 'tanpaku_logo2.png', :size =>'160x80' %>
+            <div class ="head__search row">
+              <%= form_with url: search_path, method: :get, local: true do |f| %>
+                <%= f.text_field :content, placeholder: "食材名、料理名", class: "form-control" %>
+                <%= f.select :model, options_for_select({ "食材" => "food", "料理" => "recipe"}), class: "form-control" %>
+                <%= f.button :type => 'submit', class: 'btn btn-default' do%>
+                  <i class="fas fa-search"></i>
+                <% end %>
+              <% end %>
+            </div>
+
+            <ul class ="">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to "Mypage", user_path(current_user.id),method: :get %>
+                </li>
+                <li>
+                  <%= link_to "Food", foods_path, method: :get %>
+                </li>
+                <li>
+                  <%= link_to "Recipe", recipes_path, method: :get %>
+                </li>
+                <li>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to "Mypage", new_user_session_path, method: :get %>
+                </li>
+                <li>
+                  <%= link_to "Food", foods_path, method: :get %>
+                </li>
+                <li>
+                  <%= link_to "Recipe", recipes_path, method: :get %>
+                </li>
+                <li>
+                  <%= link_to "Login", new_user_session_path, method: :get %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class ="container">
+        <%= yield %>
+      </div>
+      <footer>
+          <h1>asimoto</h1>
+      </footer>
+
   </body>
 </html>
