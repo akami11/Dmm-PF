@@ -22,7 +22,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
-     @foods = @category.foods
+    @foods = @category.foods
+    @tip = Tip.find(Tip.pluck(:id).sample)
+    @categories = Category.all
   end
 
   def update

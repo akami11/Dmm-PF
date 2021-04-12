@@ -4,7 +4,8 @@ class RecipesController < ApplicationController
   
   def index
     @recipes = Recipe.all
-    @tip = Tip.find(Tip.pluck(:id).sample) 
+    @tip = Tip.find(Tip.pluck(:id).sample)
+    @categories =Category.all
   end
 
   def create
