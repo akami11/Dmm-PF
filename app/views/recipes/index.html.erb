@@ -1,4 +1,10 @@
-<h1>料理一覧</h1>
-
-<%= @tip.tip_contents %>
-<%= render "recipes/index", recipes: @recipes %>
+<div class="row">
+  <div class ="col-md-2 col-sm-12">
+    <%= render "categories/sidebar", categories: @categories%>
+  </div>
+  <div class ="col-md-10">
+    <%= render "tips/tips", tip: @tip %>
+    <h1>料理一覧</h1>
+    <%= render "recipes/index", recipes: @recipes %>
+  </div>
+</div>

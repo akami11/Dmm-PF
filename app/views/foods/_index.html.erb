@@ -1,10 +1,30 @@
 <%= link_to "新規", new_food_path, method: :get%>
+<div class="row d-flex">
+  <% foods.each do |food| %>
+    <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+      <div class="card mb-3"style="width: 13rem;">
+        <%= link_to food_path(food.id), method: :get do %>
+          <%= attachment_image_tag food, :food_image, :fill, 150, 100, format: 'jpeg',class: "card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= food.food_name %></h5>
+          <div class="card-text">
+            <div class="food__text">
+              <div>熱量</div>
+              <div><%= food.calorie %>kcal</div>
+            </div>
+            <div class="food__text">
+              <div>タンパク質</div>
+              <div><%= food.protein %>g</div>
+            </div>
+            <div class="food__text">
+              <div>割合</div>
+              <div><%= food.ratio %>mg/kca</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<% foods.each do |food| %>
-  <table class="table">
-    <tr>
-      <td><%= link_to food.food_name, food_path(food.id), method: :get %></td>
-      <td><%= link_to "削除", food_path(food.id),method: :delete %></td>
-    </tr>
-  </table>
-<% end %>

@@ -1,6 +1,8 @@
- <h2>カテゴリー検索</h2>
-
- <% categories.each do |category| %>
- <%= link_to category.category_name, category_path(category.id), method: :get%>
- 
- <% end %>
+ <div class="category__sidebar">
+  <h5>食材検索</h5>
+  <ul>
+   <% categories.each do |category| %>
+   <li class="mb-3"><%= link_to category.category_name, category_path(category.id), method: :get%></li>
+   <% end %>
+  </ul>
+ </div>
