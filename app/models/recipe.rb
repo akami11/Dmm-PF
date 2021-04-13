@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   validates :recipe_name, length: { maximum: 18 }
   validates :recipe_name, presence: true
   
+  enum about_time: { berryshort: 0, short: 1, medium: 2, long: 3, berrylong: 4}
   
   attachment :recipe_image
 end

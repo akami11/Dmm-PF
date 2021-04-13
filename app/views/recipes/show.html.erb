@@ -1,17 +1,17 @@
 <%= @tip.tip_contents %>
 
 <%= @recipe.recipe_name %>
-
+<%= @recipe.about_time_i18n %>
+<%= @recipe.phrase %>
 <%= attachment_image_tag @recipe, :recipe_image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg", size: "200x150" %><br>
 
  <% @ingredients.each do |ingredient| %>
    <%= ingredient.ingredient_name %>
    <%= ingredient.quantity %>
  <% end %>
- 
+
  <%= @recipe.process %>
- 
+
  <% if @recipe.user = current_user %>
    <%= link_to "編集する", edit_recipe_path(@recipe.id), method: :get%>
  <% end %>
- 

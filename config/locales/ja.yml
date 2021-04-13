@@ -1,0 +1,10 @@
+ja:
+  enums:
+    recipe:
+      about_time:
+        berryshort: 約10分以内
+        short: 約15分以内
+        medium: 約30分以内
+        long: 約1時間以内
+        berrylong: 約1時間以上
+        # gem"enum_help"を入れているためこのような記述です

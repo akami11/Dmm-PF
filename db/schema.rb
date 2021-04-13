@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_053751) do
+ActiveRecord::Schema.define(version: 2021_04_13_003711) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2021_04_06_053751) do
     t.text "process"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "phrase"
+    t.integer "about_time", default: 0, null: false
   end
 
   create_table "tips", force: :cascade do |t|
