@@ -56,7 +56,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:recipe_name, :recipe_image, :process,
+    params.require(:recipe).permit(:recipe_name, :recipe_image, :process, :phrase, :about_time,
                                 ingredients_attributes: [:id, :recipe_id,:ingredient_name, :quantity, :_destroy]) #これでレシピと一緒にデータを保存出来てる
   end
 
