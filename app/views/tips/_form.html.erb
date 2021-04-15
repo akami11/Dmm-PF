@@ -1,7 +1,16 @@
-<h2>Tips</h2>
-<%= render 'layouts/error_messages', model: tip %>
-<%= form_with model: tip, local:true do |f| %>
-  <%= f.text_field :tip_contents, placeholder: "皆さんの知識を世界に広めましょう！", class: "" %>
-  <p>投稿された内容はランダムに表示されます、不適切な表現には気をつけてください</p>
-  <%= f.submit 'Create Book', class: "btn btn-success" %>
-<% end %>
+<div class = "row form-group">
+  <div class ="col">
+    <h4>Tips</h4>
+    <%= render 'layouts/error_messages', model: tip %>
+    <%= form_with model: tip, local:true do |f| %>
+    <%= f.text_field :tip_contents, placeholder: "皆さんの知識を世界に広めましょう！", class: "form-control" %>
+  </div>
+</div>
+<div class = "row form-group">
+  <div class ="col text-center">
+    <p>投稿された内容はランダムに表示されます、不適切な表現には気をつけてください</p>
+    <%= f.submit '投稿', class: "btn btn-secondary w-25" %>
+    <% end %>
+  </div>
+</div>
+

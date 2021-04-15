@@ -4,7 +4,7 @@ class FoodsController < ApplicationController
 
 
   def index
-    @foods = Food.all
+    @foods = Food.page(params[:page]).per(12)
     @categories = Category.all
 
     # ランダムなTipを取得

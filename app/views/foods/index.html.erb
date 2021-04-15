@@ -1,10 +1,10 @@
-<div class="row">
-  <div class ="col-md-2 col-sm-12">
+<div class="row food">
+  <div class ="col-lg-2 col-sm-12">
     <%= render "categories/sidebar", categories: @categories%>
   </div>
   <div class ="col-md-10">
     <%= render "tips/tips", tip: @tip %>
-    <h1>食材一覧</h1>
+    <h3>食材一覧</h3>
     <%= render "foods/index", foods: @foods%>
   </div>
 </div>

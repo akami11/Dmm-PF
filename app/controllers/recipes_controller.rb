@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :ensure_recipe, only: [:edit, :show, :update, :destroy]
   
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.page(params[:page]).per(5)
     @tip = Tip.find(Tip.pluck(:id).sample)
     @categories =Category.all
   end
