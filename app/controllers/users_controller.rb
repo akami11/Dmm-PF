@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @recipes = @user.recipes
+    @recipes = @user.recipes.page(params[:page]).per(3)
     @tips = @user.tips
   end
 

@@ -8,11 +8,13 @@
       <h5>キャッチコピー</h5>
       <%= f.text_field :phrase, class: "form-control mb-3", :required => true  %>
       <h5>料理画像</h5>
-      <%= f.attachment_field :recipe_image %>
-      <h5>制作時間</h5>
+      <%= f.attachment_field :recipe_image, class: "mb-3" %>
+      
+      <h5>調理時間</h5>
        <!-- enumで設定した値を呼び出しています、_i18nはgemのおかげでこのような表記です　-->
        <!-- 普通のselectで値を送ろうとするとstring型で送られるためエラーが出ました　-->
        <%= f.select :about_time, Recipe.about_times_i18n.invert, {}, { class: 'form-control' , required: true } %>
+       
     </div>
     
     

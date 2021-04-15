@@ -38,7 +38,7 @@ footer{
   align-items: center;
 
   &__search{
-    
+
     form{
       display: flex;
       select{
@@ -68,3 +68,24 @@ footer{
 .tip{
   background-color: #ffac3796;
 }
+
+
+.pagination{
+  justify-content: center;
+  li{
+    a {
+      border: none;     /*枠線をなくす*/
+      color: #696969;   /*文字の色を変える*/
+    }
+    a:hover{
+      border-radius: 15px; 
+    }
+  }
+  .active{
+    a{
+      background: #93c9ff;     /*背景の色を変える*/
+      border-radius: 15px;     /*角を丸くする*/
+    }
+  }
+}
+

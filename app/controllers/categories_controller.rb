@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @foods = @category.foods
+    @foods = @category.foods.page(params[:page]).per(12)
     @tip = Tip.find(Tip.pluck(:id).sample)
     @categories = Category.all
   end

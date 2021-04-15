@@ -1,33 +1,50 @@
-<%= @user.user_name %>
+<div class="row">
+  <div class="col-md-6 mb-3 text-center">
+    <h4><%= @user.user_name %></h4>
+    <%= attachment_image_tag @user, :profile_image, :fill, 400, 300, format: 'jpeg', fallback: "no_image.jpg" %><br>
 
-<%= attachment_image_tag @user, :profile_image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg", size: "200x150" %><br>
+    <% if @user = current_user %>
+      <%= link_to "編集", edit_user_path(@user.id),method: :get, class: "btn btn-secondary w-25"%>
+    <% end %>
+  </div>
 
-<% if @user = current_user %>
-  <%= link_to "編集", edit_user_path(@user.id),method: :get%>
-<% end %>
-
-<h4>投稿料理</h4>
-<%= link_to "新規投稿", new_recipe_path, method: :get%>
- <% @recipes.each do |recipe| %>
- <table class="table">
-    <tr>
-      <td><%= recipe.recipe_name %></td>
-      <td><%= attachment_image_tag recipe, :recipe_image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg", size: "200x150" %></td>
-    </tr>
-</table>
-<% end %>
-
-
-<% if @user = current_user %>
-  <%= link_to "新規", new_tip_path, method: :get%>
-
-   <% @tips.each do |tip| %>
-   <table>
-     <tr>
-       <td><%= tip.tip_contents %></td>
-       <td> <%= link_to "編集", edit_tip_path(tip.id),method: :get%></td>
-     </tr>
-   </table>
-   <% end %>
-
-<% end %>
+  <div class="col-md-6">
+    <h4>投稿料理</h4>
+    <%= link_to  new_recipe_path, method: :get do%>
+      <i class="far fa-plus-square"></i>
+    <% end %>
+    <% @recipes.each do |recipe| %>
+      <div class="card mb-3" style="max-width: 800px;">
+        <div class="row recipe__index">
+          <div class="col-4">
+              <%= link_to recipe_path(recipe.id), method: :get do %>
+                <%= attachment_image_tag recipe, :recipe_image, :fill, 250,200, format: 'jpeg', class: "" %>
+              <% end %>
+          </div>
+          <div class="col-8 card-body">
+              <h5 class="card-title"><%= recipe.recipe_name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= recipe.phrase %></h6>
+              <p class="card-text"><small class="text-muted">Last updated <%= recipe.updated_at.to_s(:datetime_jp) %></small></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+      <%= paginate @recipes %>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-10">
+    <% if @user = current_user %>
+      <h4>Tips一覧</h4>
+      <%= link_to "新規", new_tip_path, method: :get%>
+      <table class="table table-striped">
+        <% @tips.each do |tip| %>
+         <tr>
+           <td><%= tip.tip_contents %></td>
+           <td> <%= link_to "編集", edit_tip_path(tip.id),method: :get, class: "btn btn-secondary"%></td>
+         </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+</div>

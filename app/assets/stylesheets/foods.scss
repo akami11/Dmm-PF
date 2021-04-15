@@ -2,9 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.food__text{
-  display: flex;
-  justify-content: space-between;
+.food{
+   position: relative;
+  &__text{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__icon{
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    font-size: 30px;
+    color: #b9c1ca;
+  }
 }
-
-
+  

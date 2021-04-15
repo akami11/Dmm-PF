@@ -7,7 +7,7 @@
     <%= attachment_image_tag @food, :food_image, :fill, 300, 225, format: 'jpeg', fallback: "no_image.jpg", size: "300x225" %><br>
   </div>
   <div class="col-md-6">
-    <table class="table">
+    <table class="table table-striped">
         <tr>
           <td>熱量</td>
           <td><%= @food.calorie %>kcal</td>
@@ -42,19 +42,25 @@
 <div class="row">
   <div class="col">
     <h5>その他の成分</h5>
-    <text_area class="form-control mb-3"><%= @food.other_nutrition %></text_area>
+    <textarea class="form-control mb-3"><%= @food.other_nutrition %></textarea>
     <div class="col text-center">
       <%= link_to "編集", edit_food_path(@food.id),method: :get, class: "btn btn-secondary w-25 mb-2" %>
       <%= link_to "削除", food_path(@food.id),method: :delete, class: "btn btn-secondary w-25 mb-2" %>
     </div>
   </div>
 </div>
-
-
-
-
-<% @ingredients.each do |i| %>
-
- <%= i.recipe.recipe_name %>
-
-<% end %>
+<div class="row d-flex">
+  <% @ingredients.each do |i| %>
+  <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+    <div class="card mb-3"style="width: 14rem;">
+      <%= link_to recipe_path(i.recipe.id), method: :get do %>
+        <%= attachment_image_tag i.recipe, :recipe_image, :fill, 220, 150, format: 'jpeg',class: "card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= i.recipe.recipe_name %></h5>
+        <div class="card-text"><%= i.recipe.phrase %></div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
