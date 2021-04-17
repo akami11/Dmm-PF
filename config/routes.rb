@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :recipes
   resources :tips, :except => [:index, :show]
   get "search", to: "searchs#search"
+  get "sort", to: "sorts#sort"
 end

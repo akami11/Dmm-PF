@@ -19,7 +19,43 @@
 
 header{
   background-color: #3a4750;
-  margin-bottom: 20px;
+  
+  .head{
+    background-color: #3a4750;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__search{
+      form{
+        display: flex;
+        select{
+          margin-left: 20px;
+        }
+        i{
+         color: #dcddde;
+         font-size: 20px;
+        }
+      }
+    }
+    ul{
+      display: flex;
+      li{
+        list-style: none;
+        display: flex;
+        margin: 0 10px;
+        a{
+          color: #dcddde;
+          font-size: 20px;
+        }
+      }
+      li:last-child{
+        margin-right: 0px;
+      }
+    }
+  }
+  .navbar{
+    padding: 0px;
+  }
 }
 
 footer{
@@ -31,44 +67,6 @@ footer{
   }
 }
 
-.head{
-  background-color: #3a4750;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  &__search{
-
-    form{
-      display: flex;
-      select{
-        margin-left: 20px;
-      }
-      i{
-       color: #dcddde;
-       font-size: 20px;
-      }
-    }
-  }
-
-  ul{
-    display: flex;
-    li{
-      list-style: none;
-      display: flex;
-      margin: 20px 20px 10px 10px;
-      a{
-        color: #dcddde;
-        font-size: 20px;
-      }
-    }
-  }
-}
-
-.tip{
-  background-color: #ffac3796;
-}
-
 
 .pagination{
   justify-content: center;
@@ -78,7 +76,7 @@ footer{
       color: #696969;   /*文字の色を変える*/
     }
     a:hover{
-      border-radius: 15px; 
+      border-radius: 15px;
     }
   }
   .active{
