@@ -1,9 +1,31 @@
-<h2>検索結果</h2>
 <% if @records.exists? %> 
 	<% if @model == 'food' %>
-		<%= render 'foods/index', foods: @records %>
+		<div class="row food">
+			<div class ="col-md-2 category__sidebar">
+			  <%= render "categories/sidebar", categories: @categories%>
+			</div>
+			<div class ="col-md-10">
+			  <%= render "tips/tips", tip: @tip %>
+			  <div class="food__box">
+			    <h3><%= @content %>の検索結果</h3>
+			   <%= render 'foods/index', foods: @records %>
+			  </div>
+			</div>
+		</div>
 	<% else %>
-		<%= render 'recipes/index', recipes: @records %>
+
+		<div class="row recipe">
+		  <div class ="col-md-2 col-sm-12 category__sidebar">
+		    <%= render "categories/sidebar", categories: @categories%>
+		  </div>
+		  <div class ="col-md-10">
+		    <%= render "tips/tips", tip: @tip %>
+		    <div class="recipe__box">
+					<h3><%= @content %>の検索結果</h3>
+		      <%= render 'recipes/index', recipes: @records %>
+		    </div>
+		  </div>
+		</div>
 	<% end %>
 <% else %>
 	<h3>見つかりませんでした。検索条件を変更して再度お試しください。</h3>

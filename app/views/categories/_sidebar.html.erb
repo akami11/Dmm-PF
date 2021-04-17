@@ -1,8 +1,13 @@
- <div class="category__sidebar">
-  <h5>食材検索</h5>
-  <ul>
+<h5>カテゴリ検索</h5>
+<div class="dropdown mb-1">
+
+ <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   一覧
+ </button>
+ <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
    <% categories.each do |category| %>
-   <li class="mb-3"><%= link_to category.category_name, category_path(category.id), method: :get%></li>
+     <%= link_to category.category_name, category_path(category.id), method: :get,class: "dropdown-item"%>
    <% end %>
-  </ul>
  </div>
+</div>
+

@@ -17,3 +17,13 @@
     color: #212528;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .category__sidebar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+}

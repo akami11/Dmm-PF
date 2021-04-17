@@ -3,17 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .food{
-   position: relative;
+
   &__text{
     display: flex;
     justify-content: space-between;
   }
+  &__box{
+    position: relative;
+  }
   &__icon{
     position: absolute;
-    top: 30px;
-    right: 20px;
+    top: 5px;
+    right: 10px;
     font-size: 30px;
     color: #b9c1ca;
   }
 }
-  
+
+@media screen and (max-width:375px) {
+  .col{
+   padding: 0px;
+  }
+}
+

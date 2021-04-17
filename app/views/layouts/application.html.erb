@@ -10,99 +10,56 @@
   </head>
 
   <body>
-
-      <header>
-        <div class ="container">
-          <div class = "head">
-            <a href="/"><%= image_tag 'tanpaku_logo2.png', :size =>'160x80' %></a>
-            <div class ="head__search row">
-              <%= form_with url: search_path, method: :get, local: true do |f| %>
-                <%= f.text_field :content, placeholder: "食材名、料理名", class: "form-control" %>
-                <%= f.select :model, options_for_select({ "食材" => "food", "料理" => "recipe"}), class: "form-control" %>
-                <%= f.button :type => 'submit', class: 'btn btn-default' do%>
-                  <i class="fas fa-search"></i>
+    <header>
+      <div class ="container head navbar navbar-dark navbar-expand-lg">
+        <!-- ナビゲーションバー -->
+          <a class="navbar-brand" href="/"><%= image_tag 'tanpaku_logo2.png', :size =>'150x75' %></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <div class="navbar-nav">
+              <div class="nav-item head__search">
+                <%= form_with url: search_path, method: :get, local: true do |f| %>
+                  <%= f.text_field :content, placeholder: "食材名、料理名", class: "form-control" %>
+                  <%= f.select :model, options_for_select({ "食材" => "food", "料理" => "recipe"}), class: "form-control" %>
+                  <%= f.button :type => 'submit', class: 'btn btn-default' do%>
+                    <i class="fas fa-search"></i>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
-
-<!-- ナビゲーションバー -->    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <!-- ドロップダウンタイプ -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown link
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-
-            <ul class ="">
-              <% if user_signed_in? %>
-                <li>
-                  <%= link_to "Mypage", user_path(current_user.id),method: :get %>
-                </li>
-                <li>
-                  <%= link_to "Food", foods_path, method: :get %>
-                </li>
-                <li>
-                  <%= link_to "Recipe", recipes_path, method: :get %>
-                </li>
-                <li>
-                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-                </li>
-              <% else %>
-                <li>
-                  <%= link_to "Mypage", new_user_session_path, method: :get %>
-                </li>
-                <li>
-                  <%= link_to "Food", foods_path, method: :get %>
-                </li>
-                <li>
-                  <%= link_to "Recipe", recipes_path, method: :get %>
-                </li>
-                <li>
-                  <%= link_to "Login", new_user_session_path, method: :get %>
-                </li>
-              <% end %>
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <% if user_signed_in? %>
+                  <%= link_to "Mypage", user_path(current_user.id),method: :get, class: "nav-link" %>
+                <% else %>
+                  <%= link_to "Mypage", new_user_session_path,method: :get, class: "nav-link" %>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Food", foods_path, method: :get, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Recipe", recipes_path, method: :get, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <% if user_signed_in? %>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                <% else %>
+                  <%= link_to "Login", new_user_session_path, method: :get, class: "nav-link" %>
+                <% end %>
             </ul>
           </div>
-        </div>
-      </header>
-      <div class ="container-lg">
+      </div>
+    </header>
+    <div class= "home">
+      <div class ="container">
         <%= yield %>
       </div>
-      <footer>
-          <h1>asimoto</h1>
-      </footer>
-
+    </div>
+    <footer>
+        <h1>asimoto</h1>
+    </footer>
   </body>
 </html>
