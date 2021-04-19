@@ -16,13 +16,24 @@
     top: 5px;
     right: 10px;
     font-size: 30px;
-    color: #b9c1ca;
+    color: #3a4750;
   }
 }
 
 @media screen and (max-width:375px) {
-  .col{
-   padding: 0px;
+  .food{
+    &__text{
+      font-size: 12px;
+    }
+    .card-title{
+      font-size: 18px;
+    }
+    .card-subtitle{
+      font-size: 12px;
+    }
+    .col-6{
+      padding: 5px;
+    }
   }
 }
 

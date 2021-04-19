@@ -1,3 +1,4 @@
+<div class="search">
 <% if @records.exists? %> 
 	<% if @model == 'food' %>
 		<div class="row food">
@@ -6,27 +7,38 @@
 			</div>
 			<div class ="col-md-10">
 			  <%= render "tips/tips", tip: @tip %>
-			  <div class="food__box">
-			    <h3><%= @content %>の検索結果</h3>
+		   	<h3><%= @content %>の検索結果</h3>
+	    	<div class="food__box">
 			   <%= render 'foods/index', foods: @records %>
 			  </div>
 			</div>
 		</div>
 	<% else %>
-
 		<div class="row recipe">
 		  <div class ="col-md-2 col-sm-12 category__sidebar">
 		    <%= render "categories/sidebar", categories: @categories%>
 		  </div>
 		  <div class ="col-md-10">
 		    <%= render "tips/tips", tip: @tip %>
-		    <div class="recipe__box">
-					<h3><%= @content %>の検索結果</h3>
+				<h3 class=""><%= @content %>の検索結果</h3>
+				<div class="recipe__box">
 		      <%= render 'recipes/index', recipes: @records %>
 		    </div>
 		  </div>
 		</div>
 	<% end %>
 <% else %>
-	<h3>見つかりませんでした。検索条件を変更して再度お試しください。</h3>
+	<div class="row">
+	  <div class ="col-md-2 col-sm-12 category__sidebar">
+	    <%= render "categories/sidebar", categories: @categories%>
+	  </div>
+	  <div class ="col-md-10">
+	    <%= render "tips/tips", tip: @tip %>
+	    <div class="recipe__box">
+				<h3><%= @content %>の検索結果</h3>
+	    	<h3>見つかりませんでした。検索条件を変更して再度お試しください。</h3>
+	    </div>
+	  </div>
+	</div>
 <% end %>
+</div>

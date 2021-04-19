@@ -8,6 +8,7 @@ class SortsController < ApplicationController
     @conclude = sort_for(@nutrition,@updown).page(params[:page]).per(12)
     @categories = Category.all
     @tip = Tip.find(Tip.pluck(:id).sample)
+    # @foods = params["foods"]
   end
   
   private

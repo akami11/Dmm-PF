@@ -1,10 +1,14 @@
-<div class="row">
-  <div class ="col-md-2 col-sm-12">
-    <%= render "categories/sidebar", categories: @categories%>
-  </div>
-  <div class ="col-md-10">
-    <%= render "tips/tips", tip: @tip %>
-    <h2><%= @category.category_name %>一覧</h2>
-    <%= render "foods/index", foods: @foods%>
+<div class="category">
+  <div class="row">
+    <div class ="col-md-2 category__sidebar">
+      <%= render "categories/sidebar", categories: @categories%>
+    </div>
+    <div class ="col-md-10">
+      <%= render "tips/tips", tip: @tip %>
+      <div class="food__box">
+        <h3><%= @category.category_name %>一覧</h3>
+        <%= render "foods/index", foods: @foods%>
+      </div>
+    </div>
   </div>
 </div>

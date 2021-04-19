@@ -1,12 +1,12 @@
 <%= render "tips/tips", tip: @tip %>
 
-<div class="row">
-  <div class="col-md-6 mb-3">
+<div class="row recipe">
+  <div class="col-md-6 mb-3 recipe__index">
     <h4><%= @recipe.recipe_name %></h4>
     <h5><%= @recipe.phrase %></h5>
     <div class="row">
-       <h5 class="col-4">調理時間</h5>
-       <div class="col-4"><%= @recipe.about_time_i18n %> </div>
+       <h5 class="col-5">調理時間</h5>
+       <div class="col-5"><%= @recipe.about_time_i18n %> </div>
     </div>
     <%= attachment_image_tag @recipe, :recipe_image, :fill, 400, 300, format: 'jpeg', fallback: "no_image.jpg" %><br>
   </div>
@@ -29,7 +29,7 @@
     <textarea class="form-control mb-3" rows="5"><%= @recipe.process %></textarea>
   　 <div class="col text-center">
       <% if @recipe.user = current_user %>
-        <%= link_to "編集する", edit_recipe_path(@recipe.id), method: :get, class: "btn btn-secondary w-25 mb-2"%>
+        <%= link_to "編集する", edit_recipe_path(@recipe.id), method: :get, class: "btn btn-secondary w-50 mb-2"%>
       <% end %>
     </div>
   </div>
