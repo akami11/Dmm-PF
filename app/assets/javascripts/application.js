@@ -20,3 +20,18 @@
 //= require turbolinks
 //= require_tree .
 //= require cocoon
+
+$(function(){
+  ScrollReveal().reveal('.home__anime',{
+    duration: 3000,
+    origin: 'top',
+    distance: '50px',
+    reset: false
+  });
+  ScrollReveal().reveal('.home__top',{
+    duration: 3000,
+    scale: 0.1,
+    reset: false
+  });
+});
+

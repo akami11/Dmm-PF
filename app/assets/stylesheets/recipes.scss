@@ -5,19 +5,46 @@
 .recipe{
   &__index{
     img{
-    height: 100%;
     width: 100%;
     object-fit: cover;
     }
   }
   &__box{
+    height: 10px;
     position: relative;
   }
   &__icon{
     position: absolute;
-    top: 5px;
+    top: -20px;
     right: 10px;
     font-size: 30px;
-    color: #b9c1ca;
+    color: #3a4750;
+  }
+  .card-subtitle{
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .recipe{
+    &__food{
+      display: none;
+    }
+  }
+}
+
+
+
+@media screen and (max-width:375px) {
+  .recipe{
+    &__food{
+      display: none;
+    }
+    &__box{
+      margin-bottom: 10px;
+    }
+    &__icon{
+      top: -10px;
+    }
   }
 }

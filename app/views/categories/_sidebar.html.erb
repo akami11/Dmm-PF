@@ -5,8 +5,8 @@
    一覧
  </button>
  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-   <% categories.each do |category| %>
-     <%= link_to category.category_name, category_path(category.id), method: :get,class: "dropdown-item"%>
+   <% categories.each  do |category| %>
+     <%= link_to category.category_name, category_path(category.id), method: :get, remort: true, class: "dropdown-item"%>
    <% end %>
  </div>
 </div>

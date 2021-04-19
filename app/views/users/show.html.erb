@@ -32,19 +32,21 @@
       <%= paginate @recipes %>
   </div>
 </div>
-<div class="row justify-content-center">
+<div class="row justify-content-center user">
   <div class="col-10">
     <% if @user = current_user %>
       <h4>Tips一覧</h4>
-      <%= link_to "新規", new_tip_path, method: :get%>
-      <table class="table table-striped">
-        <% @tips.each do |tip| %>
-         <tr>
-           <td><%= tip.tip_contents %></td>
-           <td> <%= link_to "編集", edit_tip_path(tip.id),method: :get, class: "btn btn-secondary"%></td>
-         </tr>
-        <% end %>
-      </table>
+      <%= link_to "新規", new_tip_path, method: :get , class: "btn btn-secondary mb-3"%>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <% @tips.each do |tip| %>
+           <tr>
+             <td><%= tip.tip_contents %></td>
+             <td> <%= link_to "編集", edit_tip_path(tip.id),method: :get, class: "btn btn-secondary"%></td>
+           </tr>
+          <% end %>
+        </table>
+      </div>
     <% end %>
   </div>
 </div>

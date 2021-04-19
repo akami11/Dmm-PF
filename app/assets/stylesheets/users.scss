@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user{
+ 
   &__right{
     position: relative;
       img{
@@ -16,7 +17,7 @@
     top: 2px;
     right: 14px;
     font-size: 30px;
-    color: #b9c1ca;
+    color: #3a4750;
   }
   &__left{
     img{
@@ -25,5 +26,8 @@
       object-fit: cover;
       margin-bottom: 10px;
     }
+  }
+  .table-responsive tr {
+    white-space: nowrap;
   }
 }

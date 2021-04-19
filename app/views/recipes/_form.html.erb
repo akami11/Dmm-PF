@@ -13,7 +13,7 @@
       <h5>調理時間</h5>
        <!-- enumで設定した値を呼び出しています、_i18nはgemのおかげでこのような表記です　-->
        <!-- 普通のselectで値を送ろうとするとstring型で送られるためエラーが出ました　-->
-       <%= f.select :about_time, Recipe.about_times_i18n.invert, {}, { class: 'form-control' , required: true } %>
+       <%= f.select :about_time, Recipe.about_times_i18n.invert, {}, { class: 'form-control mb-3' , required: true } %>
        
     </div>
     
@@ -35,7 +35,7 @@
       <!--  association_insertion_node: '#detail-association-insertion-point'でフォームを追加する場所を指定-->
       <!--  association_insertion_method: 'after'でフォームの追加場所を指定-->
       <%= link_to_add_association "行を追加", f, :ingredients,
-      class: 'btn btn-secondary btn-block w-25',
+      class: 'btn btn-secondary btn-block w-50 mx-auto',
       id: '',
       data: {
         association_insertion_node: '#detail-association-insertion-point',

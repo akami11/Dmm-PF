@@ -1,6 +1,8 @@
-<%= link_to  new_recipe_path, method: :get do%>
-  <i class="far fa-plus-square recipe__icon"></i>
-<% end %>
+<div class="recipe__box">
+  <%= link_to  new_recipe_path, method: :get do%>
+    <i class="far fa-plus-square recipe__icon"></i>
+  <% end %>
+</div>
 <% recipes.each do |recipe| %>
   <div class="card mb-3" style="max-width: 800px;">
     <div class="row recipe__index">
@@ -13,7 +15,7 @@
 
           <h5 class="card-title"><%= recipe.recipe_name %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= recipe.phrase %></h6>
-          <p class="card-text">
+          <p class="card-text recipe__food">
             材料：
             <% recipe.ingredients.each do |ingredient| %>
               <%= ingredient.ingredient_name %>
