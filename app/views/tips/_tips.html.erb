@@ -1,4 +1,5 @@
 <div class= "row text-center mb-2 tip">
   <div class="col-md-2">Tips</div>
-  <div class="col-md-8 "> <%= tip.tip_contents %></div>
+  <div class="col-md-7 "> <%= tip.tip_contents %></div>
+  <div id="tip_<%= tip.id %>" class="col-md-3 align-self-center tip__like"><%= render "likes/like", tip: tip %></div>
 </div>

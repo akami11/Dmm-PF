@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     if @food.save
-      redirect_to foods_path
+      redirect_to food_path(@food.id)
     else
       @categories = Category.all
       render :new
@@ -42,7 +42,7 @@ class FoodsController < ApplicationController
 
   def update
     if @food.update(food_params)
-      redirect_to foods_path
+      redirect_to food_path(@food.id)
     else
       render :edit
     end

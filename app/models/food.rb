@@ -5,7 +5,7 @@ class Food < ApplicationRecord
 
   attachment :food_image
   
-  validates :food_name, length: { maximum: 15 }
+  validates :food_name, length: { maximum: 11 }
   validates :calorie, presence: true
   validates :protein, presence: true
   
