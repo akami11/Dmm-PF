@@ -40,9 +40,11 @@
       <div class="table-responsive">
         <table class="table table-striped">
           <% @tips.each do |tip| %>
-           <tr>
-             <td><%= tip.tip_contents %></td>
-             <td> <%= link_to "編集", edit_tip_path(tip.id),method: :get, class: "btn btn-secondary"%></td>
+            <tr>
+              <td><%= tip.tip_contents %></td>
+              <td><%= tip.likes.count %>いいね</td>
+              <td> <%= link_to "編集", edit_tip_path(tip.id),method: :get, class: "btn btn-secondary"%></td>
+              <td> <%= link_to "削除", tip_path(tip.id),method: :delete,"data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-secondary"%></td>
            </tr>
           <% end %>
         </table>

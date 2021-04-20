@@ -28,8 +28,9 @@
     <h5>作り方</h5>
     <textarea class="form-control mb-3" rows="5"><%= @recipe.process %></textarea>
   　 <div class="col text-center">
-      <% if @recipe.user = current_user %>
-        <%= link_to "編集する", edit_recipe_path(@recipe.id), method: :get, class: "btn btn-secondary w-50 mb-2"%>
+      <% if @recipe.user == current_user %>
+        <%= link_to "編集", edit_recipe_path(@recipe.id), method: :get, class: "btn btn-secondary w-25 mb-2"%>
+        <%= link_to "削除", recipe_path(@recipe.id), method: :delete,"data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-secondary w-25 mb-2"%>
       <% end %>
     </div>
   </div>

@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :foods,dependent: :destroy
   has_many :recipes,dependent: :destroy
   has_many :tips,dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   attachment :profile_image
+  
+  validates :user_name, length: { maximum: 10 }
 end

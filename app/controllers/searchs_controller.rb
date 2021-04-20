@@ -1,5 +1,6 @@
 class SearchsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:search]
+  
   def search
     @model = params["model"]
     @content = params["content"]

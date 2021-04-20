@@ -1,9 +1,9 @@
 <div class="nested-fields">
   <div class="row form-group">
     
-    <div class="col-4"><%= f.text_field :ingredient_name, class: "form-control", placeholder: "材料" %></div>
+    <div class="col-4"><%= f.text_field :ingredient_name, class: "form-control", placeholder: "材料", :required => true %></div>
     
-    <div class="col-4"><%= f.text_field :quantity, class: "form-control", placeholder: "分量" %></div>
+    <div class="col-4"><%= f.text_field :quantity, class: "form-control", placeholder: "分量", :required => true %></div>
     
     <div class="offset-md-1 col-3 px-0 w-auto">
       <%= link_to_remove_association "削除", f, class: "btn btn-secondary btn-block" %>
