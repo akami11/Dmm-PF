@@ -74,3 +74,10 @@ gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
 
 gem 'pry-byebug', group: :development
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+
+gem 'enum_help'

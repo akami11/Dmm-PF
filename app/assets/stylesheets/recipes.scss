@@ -1,3 +1,50 @@
 // Place all the styles related to the recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.recipe{
+  &__index{
+    img{
+    width: 100%;
+    object-fit: cover;
+    }
+  }
+  &__box{
+    height: 10px;
+    position: relative;
+  }
+  &__icon{
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    font-size: 30px;
+    color: #3a4750;
+  }
+  .card-subtitle{
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .recipe{
+    &__food{
+      display: none;
+    }
+  }
+}
+
+
+
+@media screen and (max-width:375px) {
+  .recipe{
+    &__food{
+      display: none;
+    }
+    &__box{
+      margin-bottom: 10px;
+    }
+    &__icon{
+      top: -10px;
+    }
+  }
+}

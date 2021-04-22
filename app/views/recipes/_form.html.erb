@@ -1,0 +1,55 @@
+
+<%= form_with model: recipe, local:true do |f| %>
+  <div class="row"><%= render 'layouts/error_messages', model: f.object %></div>
+
+  <div class = "row form-group">
+    <div class ="col-md-6">
+      <h5>料理名</h5>
+      <%= f.text_field :recipe_name, class: "form-control mb-3", :required => true %>
+      <h5>キャッチコピー</h5>
+      <%= f.text_field :phrase, class: "form-control mb-3", :required => true  %>
+      <h5>料理画像</h5>
+      <%= f.attachment_field :recipe_image, class: "mb-3", :required => true %>
+      
+      <h5>調理時間</h5>
+       <!-- enumで設定した値を呼び出しています、_i18nはgemのおかげでこのような表記です　-->
+       <!-- 普通のselectで値を送ろうとするとstring型で送られるためエラーが出ました　-->
+       <%= f.select :about_time, Recipe.about_times_i18n.invert, {}, { class: 'form-control mb-3' , required: true } %>
+       
+    </div>
+    
+    
+    <!-- 動的フォームの中身を呼び出しています-->
+    <div class ="col-md-6">
+      <div class="row">
+        <h5 class="col-4">食材</h5>
+        <h5 class="col-3">分量</h5>
+      </div>
+      
+      <%= f.fields_for :ingredients do |form| %>
+        <%= render "ingredient_fields", f: form %>
+      <% end %>
+      
+      <!-- 追加されるフォームの場所-->
+      <div id="detail-association-insertion-point"></div>
+      
+      <!--  association_insertion_node: '#detail-association-insertion-point'でフォームを追加する場所を指定-->
+      <!--  association_insertion_method: 'after'でフォームの追加場所を指定-->
+      <%= link_to_add_association "行を追加", f, :ingredients,
+      class: 'btn btn-secondary btn-block w-50 mx-auto',
+      id: '',
+      data: {
+        association_insertion_node: '#detail-association-insertion-point',
+        association_insertion_method: '' 
+      }%>
+    </div>
+  </div>
+  <div class = "row">
+    <div class ="col text-center">
+      <h5>作り方</h5>
+      <%= f.text_area :process, class: "form-control mb-3",rows: 4, :required => true%>
+      <%= f.submit '投稿', class: "btn btn-secondary w-25 mb-2" %>
+    </div>
+  </div>
+<% end %>
+

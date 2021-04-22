@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <% if tip.like_by?(current_user) %>
+    <p>
+      <%= link_to tip_likes_path(tip.id), method: :delete, remote: true do %>
+        <i class="fas fa-heart unlike-btn"></i><%= tip.likes.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to tip_likes_path(tip.id), method: :post, remote: true do %>
+        <i class="far fa-heart like-btn"></i><%= tip.likes.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+<% end %>

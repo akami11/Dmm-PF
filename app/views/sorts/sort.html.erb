@@ -1,0 +1,12 @@
+<div class="row food">
+  <div class ="col-md-2 category__sidebar">
+    <%= render "categories/sidebar", categories: @categories%>
+  </div>
+  <div class ="col-md-10">
+    <%= render "tips/tips", tip: @tip %>
+    <div class="food__box">
+    <h3><%= @nutrition %>の<%= @updown %></h3>
+    <%= render 'foods/index', foods: @conclude %>
+    </div>
+  </div>
+</div>

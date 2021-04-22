@@ -1,3 +1,29 @@
 // Place all the styles related to the categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.category{
+  .category__box{
+    i{
+      color: #3a4750;
+      font-size: 20px;
+    }
+  }
+  .category__sidebar{
+    border-right-style: solid;
+    border-width: 1px;
+    height: 50%;
+    a{
+      color: #212528;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .category__sidebar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+}
