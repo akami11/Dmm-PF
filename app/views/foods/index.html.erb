@@ -1,2 +1,12 @@
-<h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<div class="row food">
+  <div class ="col-md-2 category__sidebar">
+    <%= render "categories/sidebar", categories: @categories%>
+  </div>
+  <div class ="col-md-10">
+    <%= render "tips/tips", tip: @tip %>
+    <div class="food__box">
+      <h3>食材一覧</h3>
+      <%= render "foods/index", foods: @foods%>
+    </div>
+  </div>
+</div>

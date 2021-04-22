@@ -1,2 +1,65 @@
-<h1>Foods#show</h1>
-<p>Find me in app/views/foods/show.html.erb</p>
+<%= render "tips/tips", tip: @tip %>
+
+<div class="row food">
+  <div class="col-md-6 mb-3">
+    <h4><%= @food.food_name %></h4>
+    <%= attachment_image_tag @food, :food_image, :fill, 300, 225, format: 'jpeg' %><br>
+  </div>
+  <div class="col-md-6">
+    <table class="table table-striped">
+        <tr>
+          <td>熱量</td>
+          <td><%= @food.calorie %>kcal</td>
+        </tr>
+        <tr>
+          <td>タンパク質</td>
+          <td><%= @food.protein %>g</td>
+        </tr>
+        <tr>
+          <td>脂質</td>
+          <td><%= @food.fat %>g</td>
+        </tr>
+        <tr>
+          <td>炭水化物</td>
+          <td><%= @food.carbohydrate %>g</td>
+        </tr>
+        <tr>
+          <td>食塩相当量</td>
+          <td><%= @food.salt_equivalent %>g</td>
+        </tr>
+        <tr>
+          <td>カテゴリー</td>
+          <td><%= @food.category.category_name %></td>
+        </tr>
+        <tr>
+          <td>タンパク質比率</td>
+          <td><%= @food.ratio %>g/kcal</td>
+        </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h5>その他の成分</h5>
+    <textarea class="form-control mb-3"><%= @food.other_nutrition %></textarea>
+    <div class="col text-center">
+      <%= link_to "編集", edit_food_path(@food.id),method: :get, class: "btn btn-secondary w-25 mb-2" %>
+      <%= link_to "削除", food_path(@food.id),method: :delete,"data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-secondary w-25 mb-2" %>
+    </div>
+  </div>
+</div>
+<div class="row d-flex food">
+  <% @ingredients.each do |i| %>
+  <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+    <div class="card mb-3">
+      <%= link_to recipe_path(i.recipe.id), method: :get do %>
+        <%= attachment_image_tag i.recipe, :recipe_image, :fill, 220, 150, format: 'jpeg',class: "card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= i.recipe.recipe_name %></h5>
+        <div class="card-subtitle text-muted"><%= i.recipe.phrase %></div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

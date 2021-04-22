@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   
   resources :users, :except => [:index, :new, :create]
   resources :foods
-  resources :categories, :except => [:new, :show]
+  resources :categories, :except => [:new]
   resources :recipes
-  resources :tips, :except => [:index, :show]
+  resources :tips, :except => [:index, :show] do
+    resource :likes,only:[:create,:destroy]
+  end
   get "search", to: "searchs#search"
+  get "sort", to: "sorts#sort"
 end

@@ -1,2 +1,37 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="home__top row align-items-center">
+  <div class="col text-center">
+  <h1 class="home__top--text-main">MUSCLE SUPPORT</h1>
+  <p class="home__top--text-sub">自分を美しくする、全ての人たちへ。</p>
+  </div>
+</div>
+<div class="home__about align-items-center">
+  <div class="row text-center">
+    <h1 class="col home__about--text-main">ABOUT</h1>
+  </div>
+  <div class="row text-center home__about--text-sub">人間の体は水分と脂質を除くとほとんどがタンパク質でできています。<br>
+                  筋肉、骨、臓器、皮膚、爪の主成分はタンパク質です。そんな身体を作るうえで欠かせない栄養素であるタンパク質を<br>
+                  もっと効率的に摂取して欲しいという気持ちからこのサイトは生まれました。
+                  </div>
+  <div class="row pb-3 home__anime">
+    <div class="col-md-6 order-md-1">
+      <h3 class="">食材を選ぶ</h3>
+      <p class="home__about--text-etc">様々な食材の中からタンパク質を多く含んだ食べ物を探すことができます</p>
+    </div>
+    <div class="col-md-6 order-md-2 mb-3">
+      <%= link_to  foods_path,method: :get do%>
+        <%= image_tag 'food.jpg', :size =>"300x300" %>
+      <% end %>
+    </div>
+    <div class="col-md-6 order-md-4">
+
+        <h3 class="">料理をする</h3>
+      <p class="home__about--text-etc">効率的なタンパク質の摂取もこれを見ればすぐ解決、美味しい料理が盛りだくさん。</p>
+    </div>
+    <div class="col-md-6 order-md-3">
+     <%= link_to  recipes_path,method: :get do %>
+        <%= image_tag 'recipe.jpg', :size =>'300x300' %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
