@@ -50,7 +50,7 @@
         <label class="col-4 col-form-label">カテゴリ</label>
         <%= f.collection_select :category_id, categories, :id, :category_name, { prompt: "選択してください"}, class: "form-control col-md-6 col-9 offset-1", :required => true%>
         <!-- 管理者画面を作成するまではUser ID1-->
-        <% if current_user.id == 1 %>
+        <% if current_user.admin? %>
           <%= link_to "カテゴリー追加 ", categories_path, method: :get ,class: "btn btn-secondary w-50 mt-2 mx-auto"%>
         <% end %>
       </div>
