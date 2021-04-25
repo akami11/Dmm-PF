@@ -8,9 +8,9 @@
        <h5 class="col-5">調理時間</h5>
        <div class="col-5"><%= @recipe.about_time_i18n %> </div>
     </div>
-    <%= attachment_image_tag @recipe, :recipe_image, :fill, 400, 300, format: 'jpeg', fallback: "no_image.jpg" %><br>
+    <%= attachment_image_tag @recipe, :recipe_image, size: '400x300', format: 'jpeg', fallback: "no_image.jpg" %><br>
   </div>
-  
+
   <div class="col-md-6">
    <h5>材料</h5>
     <table class="table table-striped">
