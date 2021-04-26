@@ -18,6 +18,9 @@
     font-size: 30px;
     color: #3a4750;
   }
+  img{
+    object-fit: cover;
+  }
 }
 
 @media screen and (max-width:375px) {
