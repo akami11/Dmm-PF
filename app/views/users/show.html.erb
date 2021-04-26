@@ -1,7 +1,7 @@
 <div class="row user">
   <div class="col-md-6 mb-3 text-center user__left">
     <h4><%= @user.user_name %></h4>
-    <%= attachment_image_tag @user, :profile_image, :fill, 400, 300, format: 'jpeg', fallback: "no_image.jpg" %><br>
+    <%= attachment_image_tag @user, :profile_image, size: "400x300", format: 'jpeg', fallback: "no_image.jpg" %><br>
 
     <% if @user = current_user %>
       <%= link_to "編集", edit_user_path(@user.id),method: :get, class: "btn btn-secondary w-25"%>
