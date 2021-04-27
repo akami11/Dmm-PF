@@ -14,11 +14,11 @@
       <i class="far fa-plus-square user__icon"></i>
     <% end %>
     <% @recipes.each do |recipe| %>
-      <div class="card mb-3" style="max-width: 800px;">
+      <div class="card mb-3" style="max-width: 450px;">
         <div class="row recipe__index">
           <div class="col-md-4">
               <%= link_to recipe_path(recipe.id), method: :get do %>
-                <%= attachment_image_tag recipe, :recipe_image, :fill, 250,200, format: 'jpeg', class: "" %>
+                <%= attachment_image_tag recipe, :recipe_image, size: "150x150", format: 'jpeg', class: "" %>
               <% end %>
           </div>
           <div class="col-md-8 card-body">
