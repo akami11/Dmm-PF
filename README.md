@@ -12,7 +12,7 @@
 筋トレや健康を考えた結果、いかに日々の食事で効率良くタンパク質を取れるかを考えた為。 特に女性にとってはプロテインを飲むといったことに抵抗がある人もいるが、日々の食事でも意識すればタンパク質を取れる事を分かってもらう。
 
 ### ターゲットユーザ
-健康を意識する、20代〜40代をターゲット
+健康を意識する、20代をターゲット
 - 男性にとっては効率の良い筋肉生成のサポートの為
 - 女性にとっては健康な肌や髪の生成の為
 
@@ -22,7 +22,9 @@
 - 自炊であれば、タンパク質を含む食材をピックアップし、そこからその食材を使った料理までをサポートする。
 
 ## 設計書
-<...>
+- https://app.diagrams.net/#G1R3LqtrEWQT3Y1F3TrMCSs_OOkGh6erh7
+- https://docs.google.com/spreadsheets/d/1oqDvx0SJ0vA64IE_B_t5OzvZQc9dnEdzp1-OwrUnrg0/edit#gid=1229237433
+
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/10WuTWVcRTEFm6y8vU8YgALEokrMRea90n9g9gaYNh-c/edit#gid=0
@@ -35,5 +37,6 @@ https://docs.google.com/spreadsheets/d/10WuTWVcRTEFm6y8vU8YgALEokrMRea90n9g9gaYN
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- O-DAN(https://o-dan.net/ja/)
+- PAKUTASO(https://www.pakutaso.com/)
+- Hatchful(https://hatchful.shopify.com/ja/)
