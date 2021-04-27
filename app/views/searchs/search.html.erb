@@ -1,44 +1,42 @@
 <div class="search">
-<% if @records.exists? %> 
-	<% if @model == 'food' %>
-		<div class="row food">
-			<div class ="col-md-2 category__sidebar">
-			  <%= render "categories/sidebar", categories: @categories%>
+	<% if @records.exists? %> 
+		<% if @model == 'food' %>
+			<div class="row food">
+				<div class ="col-md-2 category__sidebar">
+				  <%= render "categories/sidebar", categories: @categories%>
+				</div>
+				<div class ="col-md-10">
+				  <%= render "tips/tips", tip: @tip %>
+			   	<h3><%= @content %>の検索結果</h3>
+		    	<div class="food__box">
+				   <%= render 'foods/index', foods: @records %>
+				  </div>
+				</div>
 			</div>
-			<div class ="col-md-10">
-			  <%= render "tips/tips", tip: @tip %>
-		   	<h3><%= @content %>の検索結果</h3>
-	    	<div class="food__box">
-			   <%= render 'foods/index', foods: @records %>
+		<% else %>
+			<div class="row recipe">
+			  <div class ="col-md-2 col-sm-12 category__sidebar">
+			    <%= render "categories/sidebar", categories: @categories%>
+			  </div>
+			  <div class ="col-md-10">
+			    <%= render "tips/tips", tip: @tip %>
+					<h3 class=""><%= @content %>の検索結果</h3>
+			     <%= render 'recipes/index', recipes: @records %>
 			  </div>
 			</div>
-		</div>
+		<% end %>
 	<% else %>
-		<div class="row recipe">
+		<div class="row">
 		  <div class ="col-md-2 col-sm-12 category__sidebar">
 		    <%= render "categories/sidebar", categories: @categories%>
 		  </div>
 		  <div class ="col-md-10">
 		    <%= render "tips/tips", tip: @tip %>
-				<h3 class=""><%= @content %>の検索結果</h3>
-				<div class="recipe__box">
-		      <%= render 'recipes/index', recipes: @records %>
+		    <div class="recipe__box">
+					<h3><%= @content %>の検索結果</h3>
+		    	<h3>見つかりませんでした。検索条件を変更して再度お試しください。</h3>
 		    </div>
 		  </div>
 		</div>
 	<% end %>
-<% else %>
-	<div class="row">
-	  <div class ="col-md-2 col-sm-12 category__sidebar">
-	    <%= render "categories/sidebar", categories: @categories%>
-	  </div>
-	  <div class ="col-md-10">
-	    <%= render "tips/tips", tip: @tip %>
-	    <div class="recipe__box">
-				<h3><%= @content %>の検索結果</h3>
-	    	<h3>見つかりませんでした。検索条件を変更して再度お試しください。</h3>
-	    </div>
-	  </div>
-	</div>
-<% end %>
 </div>
