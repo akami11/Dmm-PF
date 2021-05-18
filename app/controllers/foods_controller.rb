@@ -1,15 +1,12 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   before_action :ensure_food, only: [:edit, :show, :update, :destroy]
+  before_action :tip_view, only: [:index, :show]
 
 
   def index
     @foods = Food.page(params[:page]).per(12)
     @categories = Category.all
-
-    # ランダムなTipを取得
-    @tip = Tip.find(Tip.pluck(:id).sample)
-
   end
 
   def create
@@ -32,7 +29,7 @@ class FoodsController < ApplicationController
   end
 
   def show
-    @tip = Tip.find(Tip.pluck(:id).sample)
+   
 
     # 食材の名前と同じ名前の材料を呼び出しています。viewの方でその食材を使った料理を呼び出しています。
     @ingredients = Ingredient.where(ingredient_name: @food.food_name)

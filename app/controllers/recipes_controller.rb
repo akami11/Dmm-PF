@@ -1,10 +1,10 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   before_action :ensure_recipe, only: [:edit, :show, :update, :destroy]
+  before_action :tip_view, only: [:index, :show]
   
   def index
     @recipes = Recipe.page(params[:page]).per(5)
-    @tip = Tip.find(Tip.pluck(:id).sample)
     @categories =Category.all
   end
 
@@ -37,7 +37,6 @@ class RecipesController < ApplicationController
 
   def show
     @ingredients = @recipe.ingredients
-    @tip = Tip.find(Tip.pluck(:id).sample) 
   end
 
   def update

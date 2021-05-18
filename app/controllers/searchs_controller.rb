@@ -1,5 +1,6 @@
 class SearchsController < ApplicationController
   before_action :authenticate_user!, except: [:search]
+  before_action :tip_view, only: [:search]
   
   def search
     @model = params["model"]
