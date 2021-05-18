@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
     foods_path 
   end
   
+  # tipを表示する機能
+  def tip_view
+    @tip = Tip.find(Tip.pluck(:id).sample)
+  end
+  
 end

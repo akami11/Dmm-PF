@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   before_action :ensure_category, only: [:edit, :show, :update, :destroy]
+  before_action :tip_view, only: [:show]
 
   
   def index

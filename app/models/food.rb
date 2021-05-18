@@ -13,4 +13,5 @@ class Food < ApplicationRecord
     ( protein / calorie * 1000).round(1)
     # ceilは切り上げ、floorが切り捨て、roundが四捨五入 round(N)と指定することでN桁目を四捨五入
   end
+  
 end
